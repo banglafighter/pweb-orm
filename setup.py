@@ -26,7 +26,7 @@ setup(
     license='Apache 2.0',
     author='Problem Fighter',
     author_email='problemfighter.com@gmail.com',
-    description='XXXXXXXXXXXXXX',
+    description='PWeb Object Relational Mapping Library, based on SQLAlchemy is an open-source SQL toolkit and object-relational mapper. It also used the Flask-SQLAlchemy extension.',
     long_description=README,
     long_description_content_type='text/markdown',
     packages=find_packages(),
