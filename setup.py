@@ -10,7 +10,7 @@ env = os.environ.get('source')
 
 def get_dependencies():
     dependency = [
-        'Flask-SQLAlchemy'
+        'Flask-SQLAlchemy', "ppy-common"
     ]
 
     if env and env == "dev":
