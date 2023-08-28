@@ -51,6 +51,21 @@ class PWebORM(SQLAlchemy):
                     tenant_list.append(key)
         return tenant_list
 
+    def is_tenant_exist(self, key: str):
+        if key and key in self.engines:
+            return True
+        return False
+
+    def remove_tenant(self, key: str, app=None):
+        if not key or key not in self.engines:
+            return False
+
+        if not app:
+            app = self._pweb_app
+
+        del self._app_engines[app][key]
+        return True
+
     def register_tenant(self, key: str, db_url: str, app=None):
         if not key or not db_url or key in self.engines:
             return False
