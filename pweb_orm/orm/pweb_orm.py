@@ -2,6 +2,8 @@ from flask_sqlalchemy import SQLAlchemy, BaseQuery, Model
 import typing as t
 import sqlalchemy as sa
 from flask_sqlalchemy.session import Session
+
+from pweb_orm.common.pweb_orm_cli import init_pweb_orm_cli
 from pweb_orm.common.pweb_orm_exception import PWebORMException
 from pweb_orm.orm.pweb_orm_session import PWebORMSession
 from pweb_orm.query.pweb_db_query_helper import DBQueryHelper
@@ -29,6 +31,8 @@ class PWebORM(SQLAlchemy):
 
     def init_app(self, app):
         super().init_app(app)
+        if app:
+            init_pweb_orm_cli(app, self)
 
     def run_sql(self, sql):
         try:
