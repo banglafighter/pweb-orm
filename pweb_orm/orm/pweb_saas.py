@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from flask import g
+from flask import g, request
 
 
 class PWebSaaSTenantResolver(ABC):
@@ -14,7 +14,7 @@ class PWebSaaS:
 
     @staticmethod
     def resolve_tenant_key():
-        return None
+        return request.args.get("tkey")
 
     @staticmethod
     def init_tenant_key():
