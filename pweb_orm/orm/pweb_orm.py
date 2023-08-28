@@ -2,7 +2,6 @@ from flask_sqlalchemy import SQLAlchemy, BaseQuery, Model
 import typing as t
 import sqlalchemy as sa
 from flask_sqlalchemy.session import Session
-
 from pweb_orm.common.pweb_orm_cli import init_pweb_orm_cli
 from pweb_orm.common.pweb_orm_exception import PWebORMException
 from pweb_orm.orm.pweb_orm_session import PWebORMSession
@@ -10,6 +9,7 @@ from pweb_orm.query.pweb_db_query_helper import DBQueryHelper
 
 
 class PWebORM(SQLAlchemy):
+    _pweb_app = None
 
     def __init__(self, app=None, session_options=None, metadata=None, query_class=BaseQuery, model_class=Model, engine_options=None):
         if not query_class:
@@ -32,6 +32,7 @@ class PWebORM(SQLAlchemy):
     def init_app(self, app):
         super().init_app(app)
         if app:
+            self._pweb_app = app
             init_pweb_orm_cli(app, self)
 
     def run_sql(self, sql):
@@ -50,10 +51,12 @@ class PWebORM(SQLAlchemy):
                     tenant_list.append(key)
         return tenant_list
 
-    def register_tenant(self, app, key: str, db_url: str):
+    def register_tenant(self, key: str, db_url: str, app=None):
         if not key or not db_url or key in self.engines:
             return False
 
+        if not app:
+            app = self._pweb_app
         echo: bool = app.config.setdefault("SQLALCHEMY_ECHO", False)
 
         options: dict = {"url": db_url}

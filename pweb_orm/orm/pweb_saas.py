@@ -33,6 +33,6 @@ class PWebSaaS:
 
     @staticmethod
     def get_tenant_key():
-        if "pweb_saas" in g and "key" in g.tenant:
+        if "pweb_saas" in g and "key" in g.pweb_saas:
             return g.pweb_saas["key"]
         return None
