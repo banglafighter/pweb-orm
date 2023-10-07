@@ -21,7 +21,7 @@ def get_dependencies():
 
 setup(
     name='pweb-orm',
-    version='1.0.0',
+    version='0.0.1',
     url='https://github.com/problemfighter/pweb-orm',
     license='Apache 2.0',
     author='Problem Fighter',
