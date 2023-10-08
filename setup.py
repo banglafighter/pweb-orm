@@ -13,7 +13,7 @@ def get_dependencies():
         'Flask-SQLAlchemy==3.1.1'
     ]
 
-    if env and env == "dev":
+    if env and env == "code":
         return dependency
 
     return dependency + ["ppy-common"]
