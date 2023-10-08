@@ -1,6 +1,8 @@
-from flask_sqlalchemy import SQLAlchemy, BaseQuery, Model
+from flask_sqlalchemy import SQLAlchemy
 import typing as t
 import sqlalchemy as sa
+from flask_sqlalchemy.model import Model
+from flask_sqlalchemy.query import Query
 from flask_sqlalchemy.session import Session
 from pweb_orm.common.pweb_orm_cli import init_pweb_orm_cli
 from pweb_orm.common.pweb_orm_exception import PWebORMException
@@ -11,7 +13,7 @@ from pweb_orm.query.pweb_db_query_helper import DBQueryHelper
 class PWebORM(SQLAlchemy):
     _pweb_app = None
 
-    def __init__(self, app=None, session_options=None, metadata=None, query_class=BaseQuery, model_class=Model, engine_options=None):
+    def __init__(self, app=None, session_options=None, metadata=None, query_class=Query, model_class=Model, engine_options=None):
         if not query_class:
             query_class = DBQueryHelper
         super().__init__(app=app, session_options=session_options, metadata=metadata, query_class=query_class, engine_options=engine_options, model_class=model_class)

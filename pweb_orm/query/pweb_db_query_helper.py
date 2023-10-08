@@ -1,5 +1,5 @@
-from flask_sqlalchemy import BaseQuery
+from flask_sqlalchemy.query import Query
 
 
-class DBQueryHelper(BaseQuery):
+class DBQueryHelper(Query):
     pass
