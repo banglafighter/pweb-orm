@@ -9,22 +9,24 @@ env = os.environ.get('source')
 
 
 def get_dependencies():
-    dependency = []
+    dependency = [
+        'Flask-SQLAlchemy==3.1.1'
+    ]
 
-    if env and env == "dev":
+    if env and env == "code":
         return dependency
 
-    return dependency + []
+    return dependency + ["ppy-common"]
 
 
 setup(
     name='pweb-orm',
-    version='1.0.0',
+    version='0.0.2',
     url='https://github.com/problemfighter/pweb-orm',
     license='Apache 2.0',
     author='Problem Fighter',
     author_email='problemfighter.com@gmail.com',
-    description='XXXXXXXXXXXXXX',
+    description='PWeb Object Relational Mapping Library, based on SQLAlchemy is an open-source SQL toolkit and object-relational mapper. It also used the Flask-SQLAlchemy extension.',
     long_description=README,
     long_description_content_type='text/markdown',
     packages=find_packages(),
