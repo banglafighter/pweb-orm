@@ -22,10 +22,10 @@ def get_dependencies():
 setup(
     name='pweb-orm',
     version='0.0.2',
-    url='https://github.com/problemfighter/pweb-orm',
+    url='https://github.com/banglafighter/pweb-orm',
     license='Apache 2.0',
-    author='Problem Fighter',
-    author_email='problemfighter.com@gmail.com',
+    author='Bangla Fighter',
+    author_email='banglafighter.com@gmail.com',
     description='PWeb Object Relational Mapping Library, based on SQLAlchemy is an open-source SQL toolkit and object-relational mapper. It also used the Flask-SQLAlchemy extension.',
     long_description=README,
     long_description_content_type='text/markdown',
