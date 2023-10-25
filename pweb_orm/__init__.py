@@ -8,4 +8,4 @@ from pweb_orm.model.pweb_model import PWebABCModel
 from pweb_orm.common.pweb_orm_util import PWebORMUtil
 
 # External Package Export
-from sqlalchemy import or_, and_
+from sqlalchemy import or_, and_, Integer
