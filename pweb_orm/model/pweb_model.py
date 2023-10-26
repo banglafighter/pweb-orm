@@ -8,9 +8,13 @@ class PWebBaseModel(PWebORMModel):
     __abstract__ = True
 
 
-class PWebRelationalModel(PWebBaseModel):
+class PWebSingleModel(PWebBaseModel):
     __abstract__ = True
     id = pweb_orm.Column("id", pweb_orm.BigInteger().with_variant(Integer, "sqlite"), primary_key=True, nullable=False)
+
+
+class PWebRelationalModel(PWebSingleModel):
+    __abstract__ = True
     created = pweb_orm.Column("created", pweb_orm.DateTime, default=pweb_orm.func.now(), nullable=False)
     updated = pweb_orm.Column("updated", pweb_orm.DateTime, default=pweb_orm.func.now(), onupdate=pweb_orm.func.now(), nullable=False)
 
