@@ -10,3 +10,4 @@ from pweb_orm.common.pweb_orm_util import PWebORMUtil
 # External Package Export
 from sqlalchemy import or_, and_, Integer
 from sqlalchemy.dialects.mysql import LONGTEXT
+from sqlalchemy.orm import make_transient
