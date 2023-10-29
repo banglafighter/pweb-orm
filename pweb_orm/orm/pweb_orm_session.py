@@ -7,7 +7,7 @@ from pweb_orm.orm.pweb_saas import PWebSaaS
 
 class PWebORMSession(Session):
 
-    def get_bind(self, mapper: t.Any | None = None, clause: t.Any | None = None, bind: sa.engine.Engine | sa.engine.Connection | None = None, **kwargs: t.Any, ) -> sa.engine.Engine | sa.engine.Connection:
+    def get_bind(self, mapper: t.Union[t.Any, None] = None, clause: t.Union[t.Any, None] = None, bind: t.Union[sa.engine.Engine, sa.engine.Connection, None] = None, **kwargs: t.Any, ) -> t.Union[sa.engine.Engine, sa.engine.Connection]:
         if bind is not None:
             return bind
 
