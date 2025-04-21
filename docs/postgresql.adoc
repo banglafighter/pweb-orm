@@ -1,0 +1,26 @@
+
+
+* Driver : https://pypi.org/project/psycopg2-binary/
+* Install Driver
+```bash
+pip install psycopg2-binary
+```
+* Connection String
+```
+postgresql://username:password@hostname/database_name
+```
+* PWeb Connection
+```
+SQLALCHEMY_DATABASE_URI: 'postgresql://dbuser:dbpass@localhost/sohoz_erp'
+```
+* Create user and database
+```sql
+SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'database_name';
+DROP DATABASE database_name;
+
+DROP OWNED BY dbuser;
+DROP USER dbuser;
+
+CREATE USER dbuser WITH PASSWORD 'dbuser';
+CREATE DATABASE database_name WITH OWNER dbuser ENCODING 'UTF8' LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8' TEMPLATE template0;
+```
